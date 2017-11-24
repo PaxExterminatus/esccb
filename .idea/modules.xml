@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/esccb.iml" filepath="$PROJECT_DIR$/.idea/modules/esccb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/esccb_main.iml" filepath="$PROJECT_DIR$/.idea/modules/esccb_main.iml" group="esccb" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/esccb_test.iml" filepath="$PROJECT_DIR$/.idea/modules/esccb_test.iml" group="esccb" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlin/kotlin.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlin/kotlin.iml" group="kotlin" />
     </modules>
   </component>
 </project>

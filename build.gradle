@@ -42,7 +42,7 @@ group 'by.paxdev.app'
 task deployToTomcat (dependsOn: war) {
     copy {
         from "build\\libs"
-        into "d:\\devlib\\tomcat8\\webapps\\"
+        into "d:\\devlib\\tomcat9\\webapps\\"
         include "*.war"
     }
 }

@@ -1,7 +1,7 @@
 group 'by.paxdev.app'
 
 buildscript {
-    ext.kotlin_version = '1.1.51'
+    ext.kotlin_version = '1.1.60'
 
     repositories {
         mavenCentral()
@@ -23,6 +23,9 @@ repositories {
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+    //Servlet
+    providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
+
     testCompile group: 'junit', name: 'junit', version: '4.11'
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
@@ -33,32 +36,13 @@ compileKotlin {
 compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
+
 group 'by.paxdev.app'
 
-buildscript {
-    ext.kotlin_version = '1.1.51'
-
-    repositories {
-        mavenCentral()
+task deployToTomcat (dependsOn: war) {
+    copy {
+        from "build\\libs"
+        into "d:\\devlib\\tomcat8\\webapps\\"
+        include "*.war"
     }
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    }
-}
-
-apply plugin: 'kotlin'
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
-}
-
-compileKotlin {
-    kotlinOptions.jvmTarget = "1.8"
-}
-compileTestKotlin {
-    kotlinOptions.jvmTarget = "1.8"
 }

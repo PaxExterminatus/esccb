@@ -26,7 +26,7 @@
     <facet type="web" name="Web Gradle : esccb.war">
       <configuration>
         <webroots>
-          <root url="file://D:\dev\kotlin\esccb\src\main\webapp" relative="/" />
+          <root url="file://D:\dev\escc\esccb\src\main\webapp" relative="/" />
         </webroots>
       </configuration>
     </facet>

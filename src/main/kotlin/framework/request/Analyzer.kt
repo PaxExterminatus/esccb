@@ -1,5 +1,5 @@
 package framework.request
 
-class Analyzer() {
+class Analyzer {
 
 }

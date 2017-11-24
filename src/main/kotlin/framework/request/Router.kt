@@ -1,5 +1,5 @@
 package framework.request
 
-class Router() {
+class Router {
 
 }

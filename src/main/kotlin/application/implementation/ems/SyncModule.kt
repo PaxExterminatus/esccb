@@ -10,6 +10,5 @@ class SyncModule: SysModule()
 
     override fun workRouter(work: String, queryString: String)
     {
-
     }
 }

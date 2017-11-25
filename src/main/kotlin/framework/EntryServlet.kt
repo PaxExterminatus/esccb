@@ -1,6 +1,6 @@
 package framework
 
-import framework.router.RouterModule
+import framework.router.ModuleRouter
 import javax.servlet.http.HttpServlet
 import javax.servlet.annotation.WebServlet
 import javax.servlet.http.HttpServletRequest
@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletResponse
 class EntryServlet: HttpServlet() {
     override fun service(req: HttpServletRequest, resp: HttpServletResponse)
     {
-        val module = RouterModule(req).moduleGet()
+        val module = ModuleRouter(req).moduleGet()
+
+        document.context = req.queryString ?: ""
         resp.writer.write(document.content())
     }
 }

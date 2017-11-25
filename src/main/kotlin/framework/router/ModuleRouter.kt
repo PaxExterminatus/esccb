@@ -3,7 +3,7 @@ package framework.router
 import framework.system.SysModule
 import javax.servlet.http.HttpServletRequest
 
-class RouterModule(val req: HttpServletRequest)
+class ModuleRouter(val req: HttpServletRequest)
 {
     fun moduleGet(): SysModule
     {

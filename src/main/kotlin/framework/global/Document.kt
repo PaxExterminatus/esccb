@@ -2,7 +2,7 @@ package framework.global
 
 class Document
 {
-    var context = "Hi, mr. <strong>Hitler</strong>"
+    var context = ""
 
     private var templateTop = "" +
             "<!DOCTYPE html>" +

@@ -1,7 +1,7 @@
 group 'by.paxdev.app'
 
 buildscript {
-    ext.kotlin_version = '1.1.60'
+    ext.kotlin_version = '1.2.10'
 
     repositories {
         mavenCentral()
@@ -25,6 +25,9 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
     //Servlet
     providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
+    //JDBS
+    compile files('libs/ojdbc14.jar') //Oracle
+    compile files('libs/mariadb-java-client-2.1.2.jar') //MariaDB
 
     testCompile group: 'junit', name: 'junit', version: '4.11'
     testCompile group: 'junit', name: 'junit', version: '4.12'

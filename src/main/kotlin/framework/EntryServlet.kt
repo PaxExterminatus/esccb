@@ -10,8 +10,11 @@ import javax.servlet.http.HttpServletResponse
 class EntryServlet: HttpServlet() {
     override fun service(req: HttpServletRequest, resp: HttpServletResponse)
     {
-        val module = ModuleRouter(req).moduleGet()
+        resp.writer.write(req.contextPath)
         call.globalInit(req)
+        val module = ModuleRouter(req).moduleGet()
+        module.workRouter(call.work,"")
+
         document.context = req.queryString ?: ""
         resp.writer.write(document.content())
     }

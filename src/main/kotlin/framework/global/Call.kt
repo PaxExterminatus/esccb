@@ -10,6 +10,6 @@ class Call() {
 
     fun globalInit(req: HttpServletRequest)
     {
-        //todo init property
+
     }
 }

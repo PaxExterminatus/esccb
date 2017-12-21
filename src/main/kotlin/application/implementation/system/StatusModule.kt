@@ -11,6 +11,6 @@ class StatusModule: SysModule()
     override val actionNames: Array<String> = arrayOf("show")
 
     override fun workRouter(work: String, queryString: String) {
-        document.context = "Call Deep: ${call.deep}<br>"
+        document.context += "Call Deep: ${call.deep}<br>"
     }
 }

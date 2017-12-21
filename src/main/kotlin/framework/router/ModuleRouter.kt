@@ -7,10 +7,10 @@ class ModuleRouter(val req: HttpServletRequest)
 {
     fun moduleGet(): SysModule
     {
-        if (req.requestURI === "/esccb/ems/sync/copy")
+        if (req.requestURI == "/esccb/ems/sync/copy")
             return application.implementation.ems.SyncModule()
 
-        if (req.requestURI === "/esccb/system/status/show")
+        if (req.requestURI == "/esccb/system/status/show")
             return application.implementation.system.StatusModule()
 
         return framework.system.ErrorModule()

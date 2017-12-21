@@ -1,7 +1,7 @@
 group 'by.paxdev.app'
 
 buildscript {
-    ext.kotlin_version = '1.2.10'
+    ext.kotlin_version = '1.2.0'
 
     repositories {
         mavenCentral()
@@ -24,7 +24,7 @@ repositories {
 dependencies {
 //Servlet
     providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
-//JDBS
+//JDBC
     compile files('libs/ojdbc14.jar') //Oracle
     compile files('libs/mariadb-java-client-2.1.2.jar') //MariaDB
 //Json

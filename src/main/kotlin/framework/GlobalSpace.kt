@@ -7,3 +7,5 @@ val user = User()
 val call = Call()
 
 val debugContextShow = true
+
+val urlSettings = "http://localhost:8181/esccb/settings/"

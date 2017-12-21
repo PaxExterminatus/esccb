@@ -11,7 +11,7 @@ class EntryServlet: HttpServlet() {
     override fun service(req: HttpServletRequest, resp: HttpServletResponse)
     {
         val module = ModuleRouter(req).moduleGet()
-
+        call.globalInit(req)
         document.context = req.queryString ?: ""
         resp.writer.write(document.content())
     }

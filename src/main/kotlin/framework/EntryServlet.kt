@@ -11,6 +11,7 @@ class EntryServlet: HttpServlet() {
     override fun service(req: HttpServletRequest, resp: HttpServletResponse)
     {
         document.context = ""
+        document.contextDebug = ""
 
         call.globalInit(req)
         val module = ModuleRouter(req).moduleGet()

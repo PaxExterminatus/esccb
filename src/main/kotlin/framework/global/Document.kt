@@ -3,6 +3,7 @@ package framework.global
 class Document
 {
     var context = ""
+    var contextDebug = ""
 
     private var templateTop = "" +
             "<!DOCTYPE html>" +
@@ -16,7 +17,14 @@ class Document
             "</html>"
 
     fun content(): String{
-        return "$templateTop$context$templateBottom"
+        return "$templateTop${contextDebugShow()}$context$templateBottom"
+    }
+
+    fun contextDebugShow(): String {
+        if (framework.debugContextShow)
+            return contextDebug
+        else
+            return ""
     }
 
 }

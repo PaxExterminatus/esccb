@@ -16,7 +16,7 @@ class EntryServlet: HttpServlet() {
         call.globalInit(req)
         val module = ModuleRouter(req).moduleGet()
         module.workRouter(call.work,"")
-        document.context += "v1<br>"
+        document.context += "v3<br>"
         document.context += "Module Name: ${module.moduleName}<br>"
 
         resp.writer.write(document.content())

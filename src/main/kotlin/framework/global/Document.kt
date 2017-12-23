@@ -27,4 +27,12 @@ class Document
             return ""
     }
 
+    fun addDebug(str: String) {
+        contextDebug += str + "<br>"
+    }
+
+    fun add(str: String) {
+        context += str + "<br>"
+    }
+
 }

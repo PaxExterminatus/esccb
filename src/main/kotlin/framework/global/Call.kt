@@ -11,14 +11,14 @@ class Call {
     var module: String = ""
     var work: String = ""
     var deep: Int = 0
+    lateinit var callWays: Array<String>
 
-    fun globalInit(req: HttpServletRequest)
+    fun initCall(req: HttpServletRequest)
     {
         val pt = Pattern.compile("/",Pattern.CASE_INSENSITIVE)
 
         val requestURI: String = if (req.requestURI[0] == '/') req.requestURI.substring(1) else req.requestURI
-        val callWays = pt.split(requestURI)
-        document.contextDebug += "Call Ways: ${Arrays.toString(callWays)}<br>"
+        callWays = pt.split(requestURI)
         this.deep = callWays.size
     }
 }

@@ -16,9 +16,11 @@ class EntryServlet: HttpServlet() {
         call.initCall(req)
         ways.initWays(servletContext.getRealPath("/"))
 
+        //Определяем вызываемый модуль
         val module = ModuleRouter(req).moduleGet()
         module.workRouter(call.work,"")
 
+        //Формирование отмета
         resp.writer.write(document.content())
     }
 }

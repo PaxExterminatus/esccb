@@ -10,15 +10,14 @@ import javax.servlet.http.HttpServletResponse
 class EntryServlet: HttpServlet() {
     override fun service(req: HttpServletRequest, resp: HttpServletResponse)
     {
-        //Блок инициализации и сброса
+        //Инициализация и сброса
         document.context = ""
         document.contextDebug = ""
         call.initCall(req)
         ways.initWays(servletContext.getRealPath("/"))
 
-        //Определяем вызываемый модуль
-        val module = ModuleRouter(req).moduleGet()
-        module.workRouter(call.work,"")
+        //Передаем управление модулю
+        ModuleRouter(req).moduleGet().workRouter(call.work,"")
 
         //Формирование отмета
         resp.writer.write(document.content())

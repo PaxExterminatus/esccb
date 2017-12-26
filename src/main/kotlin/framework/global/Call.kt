@@ -1,12 +1,14 @@
 package framework.global
 
+import framework.debugContextShow
 import framework.document
+import framework.settings
 import java.util.regex.Pattern
 import javax.servlet.http.HttpServletRequest
 
 class Call {
 
-    var application: String = ""
+    private var application: String = ""
     var module: String = ""
     var work: String = ""
 
@@ -36,12 +38,16 @@ class Call {
             work = callWays[2]
         }
 
-        document.addDebug("application: $application")
-        document.addDebug("module: $module")
-        document.addDebug("work: $work")
+        if (settings.debugUse)
+        {
+            document.addDebug("application: $application")
+            document.addDebug("module: $module")
+            document.addDebug("work: $work")
+        }
     }
 
-    fun resetCall(){
+    fun resetCall()
+    {
         application = ""
         module = ""
         work = ""

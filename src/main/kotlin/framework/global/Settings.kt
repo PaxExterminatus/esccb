@@ -13,10 +13,11 @@ class Settings {
     lateinit var view: String
 
     lateinit var app: String
-    //lateinit var url: String
 
     lateinit var db: String
     lateinit var email: String
+
+    var debugUse: Boolean = false
 
     fun load(ways: String)
     {
@@ -28,18 +29,18 @@ class Settings {
         db = File(settings + "db.json").inputStream().bufferedReader().use { it.readText() }
         email = File(settings + "email.json").inputStream().bufferedReader().use { it.readText() }
 
-        //
-        //url = JsonPath.read(JApp,"$.urlHost")
+        val jsonApp = Configuration.defaultConfiguration().jsonProvider().parse(app)
+        debugUse = JsonPath.read(jsonApp, "$.debugUse")
     }
 
     fun dbConnection(dbName: String): Connection
     {
-        val dbJson = Configuration.defaultConfiguration().jsonProvider().parse(db)
+        val json = Configuration.defaultConfiguration().jsonProvider().parse(db)
 
-        val driver: String = JsonPath.read(dbJson, "$.$dbName.driver")
-        val url: String = JsonPath.read(dbJson, "$.$dbName.url")
-        val user: String = JsonPath.read(dbJson, "$.$dbName.user")
-        val password: String = JsonPath.read(dbJson, "$.$dbName.password")
+        val driver: String = JsonPath.read(json, "$.$dbName.driver")
+        val url: String = JsonPath.read(json, "$.$dbName.url")
+        val user: String = JsonPath.read(json, "$.$dbName.user")
+        val password: String = JsonPath.read(json, "$.$dbName.password")
 
         Class.forName(driver)
         return DriverManager.getConnection(url, user, password)

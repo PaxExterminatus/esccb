@@ -1,16 +1,17 @@
 package framework.router
 
+import framework.call
 import framework.system.SysModule
 import javax.servlet.http.HttpServletRequest
 
-class ModuleRouter(val req: HttpServletRequest)
+class ModuleRouter(private val req: HttpServletRequest)
 {
     fun moduleGet(): SysModule
     {
-        if (req.requestURI == "/esccb/sync/copy")
+        if (call.module == "sync")
             return application.implementation.ems.SyncModule()
 
-        if (req.requestURI == "/esccb/status/show")
+        if (call.module == "status")
             return application.implementation.system.StatusModule()
 
         return framework.system.ErrorModule()

@@ -1,12 +1,12 @@
 package framework.global
 
-class Ways {
+class Settings {
     val separator = System.getProperty("file.separator")!!
     lateinit var application: String
     lateinit var settings: String
     lateinit var view: String
 
-    fun initWays(ways: String)
+    fun load(ways: String)
     {
         application = ways
         settings = ways + "settings" + separator

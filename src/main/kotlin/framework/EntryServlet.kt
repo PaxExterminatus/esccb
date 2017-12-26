@@ -14,7 +14,7 @@ class EntryServlet: HttpServlet() {
         document.context = ""
         document.contextDebug = ""
         call.initCall(req)
-        ways.initWays(servletContext.getRealPath("/"))
+        settings.load(servletContext.getRealPath("/"))
 
         //Передаем управление модулю
         ModuleRouter(req).moduleGet().workRouter(call.work,"")

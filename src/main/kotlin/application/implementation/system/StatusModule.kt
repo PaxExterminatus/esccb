@@ -3,7 +3,7 @@ package application.implementation.system
 import framework.call
 import framework.document
 import framework.system.SysModule
-import framework.ways
+import framework.settings
 import java.util.*
 
 class StatusModule: SysModule()
@@ -16,13 +16,13 @@ class StatusModule: SysModule()
         document.add("<h1>Status Page</h1>")
 
         document.add("<h2>Call</h2>")
-        document.add("Ways: ${Arrays.toString(call.callWays)}")
+        document.add("Settings: ${Arrays.toString(call.callWays)}")
         document.add("Deep: ${call.deep}")
 
-        document.add("<h2>Application Ways</h2>")
-        document.add("Separator: ${ways.separator}")
-        document.add("Application: ${ways.application}")
-        document.add("Settings: ${ways.settings}")
-        document.add("View: ${ways.view}")
+        document.add("<h2>Application Settings</h2>")
+        document.add("Separator: ${settings.separator}")
+        document.add("Application: ${settings.application}")
+        document.add("Settings: ${settings.settings}")
+        document.add("View: ${settings.view}")
     }
 }

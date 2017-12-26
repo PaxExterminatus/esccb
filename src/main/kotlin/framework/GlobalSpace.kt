@@ -5,6 +5,6 @@ import framework.global.*
 val document = Document()
 val user = User()
 val call = Call()
-val ways = Ways()
+val settings = Settings()
 
 val debugContextShow = true

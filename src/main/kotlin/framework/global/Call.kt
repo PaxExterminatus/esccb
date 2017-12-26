@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest
 class Call {
 
     var application: String = ""
-    var system: String = ""
     var module: String = ""
     var work: String = ""
 
@@ -25,32 +24,25 @@ class Call {
         if (deep > 0)
         {
             application = callWays[0]
-            system = "index"
+            module = "index"
         }
         if (deep > 1)
         {
-            system = callWays[1]
-            module = "index"
+            module = callWays[1]
+            work = "index"
         }
         if (deep > 2)
         {
-            module = callWays[2]
-            work = "index"
-        }
-        if (deep > 3)
-        {
-            work = callWays[3]
+            work = callWays[2]
         }
 
         document.addDebug("application: $application")
-        document.addDebug("system: $system")
         document.addDebug("module: $module")
         document.addDebug("work: $work")
     }
 
     fun resetCall(){
         application = ""
-        system = ""
         module = ""
         work = ""
     }

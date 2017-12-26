@@ -24,5 +24,10 @@ class StatusModule: SysModule()
         document.add("Application: ${settings.application}")
         document.add("Settings: ${settings.settings}")
         document.add("View: ${settings.view}")
+
+        document.add("<h2>Files Settings</h2>")
+        document.add("Application:<br> ${settings.app}")
+        document.add("Database:<br> ${settings.db}")
+        document.add("Email:<br> ${settings.email}")
     }
 }

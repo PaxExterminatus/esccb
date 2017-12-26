@@ -1,7 +1,6 @@
 package framework.global
 
 import java.io.File
-import java.io.InputStream
 
 class Settings {
     val separator = System.getProperty("file.separator")!!

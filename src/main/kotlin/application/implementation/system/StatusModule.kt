@@ -12,7 +12,8 @@ class StatusModule: SysModule()
     override val moduleName: String = "status"
     override val actionNames: Array<String> = arrayOf("show")
 
-    override fun workRouter(work: String, queryString: String) {
+    override fun workRouter(work: String, queryString: String)
+    {
         document.add("<h1>Status Page</h1>")
 
         document.add("<h2>Call</h2>")

@@ -3,6 +3,9 @@ package framework.global
 import java.io.File
 import com.jayway.jsonpath.Configuration
 import com.jayway.jsonpath.JsonPath
+import framework.document
+import java.sql.Connection
+import java.sql.DriverManager
 
 class Settings {
     val separator = System.getProperty("file.separator")!!
@@ -26,7 +29,25 @@ class Settings {
         db = File(settings + "db.json").inputStream().bufferedReader().use { it.readText() }
         email = File(settings + "email.json").inputStream().bufferedReader().use { it.readText() }
 
-        //val JApp = Configuration.defaultConfiguration().jsonProvider().parse(app)
+        //
         //url = JsonPath.read(JApp,"$.urlHost")
+    }
+
+    fun dbConnection(dbName: String): Connection
+    {
+        val dbJson = Configuration.defaultConfiguration().jsonProvider().parse(db)
+
+        val driver: String = JsonPath.read(dbJson, "$.$dbName.driver")
+        val url: String = JsonPath.read(dbJson, "$.$dbName.url")
+        val user: String = JsonPath.read(dbJson, "$.$dbName.user")
+        val password: String = JsonPath.read(dbJson, "$.$dbName.password")
+
+        document.addDebug("driver: $driver")
+        document.addDebug("url: $url")
+        document.addDebug("user: $user")
+        document.addDebug("password: $password")
+
+        Class.forName(driver);
+        return DriverManager.getConnection(url, user, password)
     }
 }

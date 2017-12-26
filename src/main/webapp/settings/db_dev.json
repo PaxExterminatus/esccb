@@ -1,0 +1,17 @@
+{
+  "cross": {
+    "driver": "org.mariadb.jdbc.Driver",
+    "url": "jdbc:mariadb://localhost/test",
+    "user": "root",
+    "password": "free",
+    "sql": {
+      "insert_batch_size": 2500
+    }
+  },
+  "sas": {
+    "driver": "oracle.jdbc.driver.OracleDriver",
+    "url": "jdbc:oracle:thin:@localhost:1521:pax",
+    "user": "pax",
+    "password": "free"
+  }
+}

@@ -16,8 +16,6 @@ class EntryServlet: HttpServlet() {
         call.initCall(req)
         settings.load(servletContext.getRealPath("/"))
 
-        val db = settings.dbConnection("cross")
-
         //Передаем управление модулю
         ModuleRouter(req).moduleGet().workRouter(call.work,"")
 

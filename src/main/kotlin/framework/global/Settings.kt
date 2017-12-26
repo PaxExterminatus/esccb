@@ -3,7 +3,6 @@ package framework.global
 import java.io.File
 import com.jayway.jsonpath.Configuration
 import com.jayway.jsonpath.JsonPath
-import framework.document
 import java.sql.Connection
 import java.sql.DriverManager
 
@@ -42,7 +41,7 @@ class Settings {
         val user: String = JsonPath.read(dbJson, "$.$dbName.user")
         val password: String = JsonPath.read(dbJson, "$.$dbName.password")
 
-        Class.forName(driver);
+        Class.forName(driver)
         return DriverManager.getConnection(url, user, password)
     }
 }

@@ -42,11 +42,6 @@ class Settings {
         val user: String = JsonPath.read(dbJson, "$.$dbName.user")
         val password: String = JsonPath.read(dbJson, "$.$dbName.password")
 
-        document.addDebug("driver: $driver")
-        document.addDebug("url: $url")
-        document.addDebug("user: $user")
-        document.addDebug("password: $password")
-
         Class.forName(driver);
         return DriverManager.getConnection(url, user, password)
     }

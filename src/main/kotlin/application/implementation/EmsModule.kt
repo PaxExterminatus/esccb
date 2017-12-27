@@ -1,10 +1,13 @@
-package application.implementation.ems
+package application.implementation
 
+import application.source.DatabaseCross
 import framework.call
-import framework.datasources.DataBase
+import framework.sources.Database
 import framework.document
 import framework.settings
 import framework.system.SysModule
+import java.io.PrintWriter
+import java.io.StringWriter
 
 class EmsModule : SysModule()
 {
@@ -26,16 +29,20 @@ class EmsModule : SysModule()
         document.add("<h1>Email Marketing System</h1>")
         try
         {
-            val sasDb = DataBase(settings.dbConnection("sas"))
-            val crossDb = DataBase(settings.dbConnection("cross"))
+            val sasDb = Database(settings.dbConnection("sas"))
+            val crossDb = DatabaseCross()
             val rs = sasDb.selectResultSet("EMS_CLIENT_SYNC")
-            crossDb.insert("EMS_CLIENT_SYNC",rs)
+            crossDb.truncateEmsClientTable()
+            crossDb.insert("EMS_CLIENT",rs)
+            document.add("Sync Complite")
         }
         catch (ex: Exception)
         {
             document.add("Sync Error")
+            val sw = StringWriter()
+            ex.printStackTrace(PrintWriter(sw))
+            document.add(sw.toString())
         }
-        document.add("Sync Complite")
     }
 
     private fun logWork() {

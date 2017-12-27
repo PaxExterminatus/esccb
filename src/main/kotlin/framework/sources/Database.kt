@@ -1,8 +1,9 @@
-package framework.datasources
+package framework.sources
+import framework.document
 import framework.settings
 import java.sql.*
 
-class DataBase(private val connection: Connection)
+open class Database(protected val connection: Connection)
 {
     var changeCaseTo = "" //upper, lower // else -> not Change
 
@@ -11,11 +12,13 @@ class DataBase(private val connection: Connection)
     }
 
     fun insert(intoArgument: String, resultSet: ResultSet) {
+        document.addDebug("count: ${resultSet.metaData.columnCount}")
+
         val command = "INSERT INTO ${changeCase(intoArgument)} VALUES (${bindVarStrBuild(resultSet.metaData.columnCount)})"
         var colIndex = resultSet.metaData.columnCount //Количество колонок, необходимо для карты полей
         var countProcessedRows = 0 //Счетчик обработанных строк
 
-        var call = connection.prepareStatement(command) //Подготовка запроса
+        val call = connection.prepareStatement(command) //Подготовка запроса
         connection.autoCommit = false //Отключаем автоматическое подтверждение транзакции
 
         while (resultSet.next()) { //Итерация по набору данных

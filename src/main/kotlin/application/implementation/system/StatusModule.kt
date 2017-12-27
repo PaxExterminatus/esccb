@@ -10,11 +10,21 @@ import java.util.*
 
 class StatusModule: SysModule()
 {
-    override val systemName: String = "system"
     override val moduleName: String = "status"
     override val actionNames: Array<String> = arrayOf("show")
 
     override fun workRouter(work: String, queryString: String)
+    {
+        if (call.work == "show")
+        {
+            showWork()
+        } else
+        {
+            exception("WNS")
+        }
+    }
+
+    private fun showWork()
     {
         document.add("<h1>Status Page</h1>")
 

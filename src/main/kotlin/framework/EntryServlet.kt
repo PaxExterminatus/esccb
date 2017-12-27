@@ -11,8 +11,8 @@ class EntryServlet: HttpServlet() {
     override fun service(req: HttpServletRequest, resp: HttpServletResponse)
     {
         //Сброс
-        document.context = ""
-        document.contextDebug = ""
+        document.contextClear()
+        document.debugClear()
         call.reset()
         //Инициализация
         call.initCall(req)

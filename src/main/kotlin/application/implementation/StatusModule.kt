@@ -1,9 +1,12 @@
 package application.implementation
 
+import application.source.DatabaseCross
+import application.source.DatabaseSas
 import framework.call
 import framework.document
 import framework.system.SysModule
 import framework.settings
+import oracle.jdbc.driver.DatabaseError
 import java.io.PrintWriter
 import java.io.StringWriter
 import java.util.*
@@ -45,15 +48,11 @@ class StatusModule: SysModule()
 
         document.add("<h3>CROSS database version</h3>")
         try {
-            val crossConnection = settings.dbConnection("cross")
-            val crossQuery = crossConnection.createStatement()
-            val crossData = crossQuery.executeQuery("SELECT VERSION() FROM dual")
-            while (crossData.next())
-                document.add(crossData.getString(1))
-
-            crossData.close()
-            crossQuery.close()
-            crossConnection.close()
+            val crossDb = DatabaseCross()
+            val resultSet = crossDb.selectResultSet("dual","VERSION()")
+            while (resultSet.next())
+                document.add(resultSet.getString(1))
+            resultSet.close()
         }
         catch (ex: Exception)
         {
@@ -64,15 +63,11 @@ class StatusModule: SysModule()
 
         document.add("<h3>SAS database version</h3>")
         try {
-            val sasConnection = settings.dbConnection("sas")
-            val sasQuery = sasConnection.createStatement()
-            val sasData = sasQuery.executeQuery("SELECT * FROM V${'$'}VERSION")
-            while (sasData.next())
-                document.add(sasData.getString(1))
-
-            sasData.close()
-            sasQuery.close()
-            sasConnection.close()
+            val sasDb = DatabaseSas()
+            val resultSet = sasDb.selectResultSet("V${'$'}VERSION")
+            while (resultSet.next())
+                document.add(resultSet.getString(1))
+            resultSet.close()
         }
         catch (ex: Exception)
         {

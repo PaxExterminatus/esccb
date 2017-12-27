@@ -8,8 +8,8 @@ class ModuleRouter(private val req: HttpServletRequest)
 {
     fun moduleGet(): SysModule
     {
-        if (call.module == "sync")
-            return application.implementation.ems.SyncModule()
+        if (call.module == "ems")
+            return application.implementation.ems.EmsModule()
 
         if (call.module == "status")
             return application.implementation.system.StatusModule()

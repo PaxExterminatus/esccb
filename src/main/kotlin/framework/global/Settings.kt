@@ -18,6 +18,8 @@ class Settings {
     lateinit var email: String
 
     var debugUse: Boolean = false
+    //
+    val sqlInsertBatchSize = 2500
 
     fun load(ways: String)
     {

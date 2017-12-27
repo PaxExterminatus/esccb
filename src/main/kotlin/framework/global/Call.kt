@@ -46,7 +46,7 @@ class Call {
         }
     }
 
-    fun resetCall()
+    fun reset()
     {
         application = ""
         module = ""

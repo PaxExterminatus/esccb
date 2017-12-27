@@ -10,10 +10,11 @@ import javax.servlet.http.HttpServletResponse
 class EntryServlet: HttpServlet() {
     override fun service(req: HttpServletRequest, resp: HttpServletResponse)
     {
-        //Инициализация и сброс
+        //Сброс
         document.context = ""
         document.contextDebug = ""
-        call.resetCall()
+        call.reset()
+        //Инициализация
         call.initCall(req)
         settings.load(servletContext.getRealPath("/"))
 

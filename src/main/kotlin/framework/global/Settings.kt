@@ -12,8 +12,8 @@ class Settings {
     lateinit var settings: String
     lateinit var view: String
 
+    //Содержание файлов конфигурации
     lateinit var app: String
-
     lateinit var db: String
     lateinit var email: String
 

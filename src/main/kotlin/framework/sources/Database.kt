@@ -3,8 +3,18 @@ import framework.document
 import framework.settings
 import java.sql.*
 
-open class Database(protected val connection: Connection)
+open class Database(dbName: String)
 {
+    protected val connection: Connection
+    private val url = settings.dbSetting("url",dbName)
+    private val user = settings.dbSetting("user",dbName)
+    private val password = settings.dbSetting("password",dbName)
+
+    init {
+        Class.forName(settings.dbSetting("driver",dbName))
+        connection = DriverManager.getConnection(url, user, password)
+    }
+
     var changeCaseTo = "" //upper, lower // else -> not Change
 
     fun selectResultSet(fromArgument: String = "dual", selectArgument: String = "*"): ResultSet {

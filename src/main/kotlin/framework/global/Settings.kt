@@ -35,16 +35,9 @@ class Settings {
         debugUse = JsonPath.read(jsonApp, "$.debugUse")
     }
 
-    fun dbConnection(dbName: String): Connection
+    fun dbSetting(settingName: String, dbName: String): String
     {
         val json = Configuration.defaultConfiguration().jsonProvider().parse(db)
-
-        val driver: String = JsonPath.read(json, "$.$dbName.driver")
-        val url: String = JsonPath.read(json, "$.$dbName.url")
-        val user: String = JsonPath.read(json, "$.$dbName.user")
-        val password: String = JsonPath.read(json, "$.$dbName.password")
-
-        Class.forName(driver)
-        return DriverManager.getConnection(url, user, password)
+        return JsonPath.read(json, "$.$dbName.$settingName")
     }
 }

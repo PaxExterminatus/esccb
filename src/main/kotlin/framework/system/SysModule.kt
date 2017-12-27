@@ -4,7 +4,7 @@ import framework.*
 
 abstract class SysModule {
     abstract val moduleName: String //todo имя модуля из имени класса
-    abstract val actionNames: Array<String> //todo получать список действий из методов с именем Action
+    abstract val workNames: Array<String> //todo получать список действий из методов с именем xxxWork
 
     abstract fun workRouter(work: String, queryString: String)
 

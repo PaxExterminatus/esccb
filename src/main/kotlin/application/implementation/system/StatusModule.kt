@@ -11,15 +11,13 @@ import java.util.*
 class StatusModule: SysModule()
 {
     override val moduleName: String = "status"
-    override val actionNames: Array<String> = arrayOf("show")
+    override val workNames: Array<String> = arrayOf("show")
 
     override fun workRouter(work: String, queryString: String)
     {
-        if (call.work == "show")
-        {
-            showWork()
-        } else
-        {
+        if (workNames.contains(call.work)){
+            if (call.work == "show") showWork()
+        } else {
             exception("WNS")
         }
     }

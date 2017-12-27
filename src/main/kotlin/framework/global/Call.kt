@@ -1,8 +1,6 @@
 package framework.global
 
-import framework.debugContextShow
-import framework.document
-import framework.settings
+import framework.*
 import java.util.regex.Pattern
 import javax.servlet.http.HttpServletRequest
 

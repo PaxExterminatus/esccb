@@ -1,5 +1,7 @@
 package framework.global
 
+import framework.settings
+
 class Document
 {
     var context = ""
@@ -21,7 +23,7 @@ class Document
     }
 
     fun contextDebugShow(): String {
-        if (framework.debugContextShow)
+        if (settings.debugUse)
             return contextDebug
         else
             return ""

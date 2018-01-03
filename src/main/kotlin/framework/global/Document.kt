@@ -39,11 +39,16 @@ class Document
         context += str + "<br>"
     }
 
-    fun contextClear(){
+    fun clear() {
+        contextClear()
+        debugClear()
+    }
+
+    private fun contextClear(){
         context = ""
     }
 
-    fun debugClear(){
+    private fun debugClear(){
         debug = ""
     }
 }

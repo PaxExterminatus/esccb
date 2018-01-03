@@ -11,9 +11,8 @@ class EntryServlet: HttpServlet() {
     override fun service(req: HttpServletRequest, resp: HttpServletResponse)
     {
         //Сброс
-        document.contextClear()
-        document.debugClear()
-        call.reset()
+        document.clear()
+        call.clear()
         //Инициализация
         call.initCall(req)
         settings.load(servletContext.getRealPath("/"))

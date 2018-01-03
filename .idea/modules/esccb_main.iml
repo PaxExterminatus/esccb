@@ -28,6 +28,7 @@
         <webroots>
           <root url="file://D:\dev\escc\esccb\src\main\webapp" relative="/" />
         </webroots>
+        <sourceRoots />
       </configuration>
     </facet>
   </component>

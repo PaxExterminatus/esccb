@@ -6,7 +6,6 @@ import framework.call
 import framework.document
 import framework.system.SysModule
 import framework.settings
-import oracle.jdbc.driver.DatabaseError
 import java.io.PrintWriter
 import java.io.StringWriter
 import java.util.*
@@ -42,11 +41,14 @@ class StatusModule: SysModule()
         document.add("<h2>Configuration Files</h2>")
         document.add("Application:<br> ${settings.app}")
         document.add("Database:<br> ${settings.db}")
-        document.add("Email:<br> ${settings.email}")
+        document.add("Email:<br> ${settings.emailJson}")
         document.add("Web:<br> ${settings.web}")
 
-        document.add("<h2>Database</h2>")
+        document.add("<h2>Setting Classes</h2>")
+        document.add("<h3>framework.global.settings.Email</h3>")
+        document.add("${settings.email}")
 
+        document.add("<h2>Database</h2>")
         document.add("<h3>CROSS database version</h3>")
         try {
             val crossDb = DatabaseCross()

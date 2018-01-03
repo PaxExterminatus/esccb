@@ -3,6 +3,7 @@ package framework.global
 import java.io.File
 import com.jayway.jsonpath.Configuration
 import com.jayway.jsonpath.JsonPath
+import framework.global.settings.Email
 
 class Settings {
     val separator = System.getProperty("file.separator")!!
@@ -13,7 +14,7 @@ class Settings {
     //Содержание файлов конфигурации
     lateinit var app: String
     lateinit var db: String
-    lateinit var email: String
+    lateinit var emailJson: String
     lateinit var web: String
 
     //Откладка
@@ -23,6 +24,8 @@ class Settings {
     //Веб
     lateinit var webCharset: String
     lateinit var webLang: String
+    //Email
+    lateinit var email: Email
 
     fun load(appRootPath: String)
     {
@@ -32,7 +35,10 @@ class Settings {
 
         app = File(settings + "app.json").inputStream().bufferedReader().use { it.readText() }
         db = File(settings + "db.json").inputStream().bufferedReader().use { it.readText() }
-        email = File(settings + "email.json").inputStream().bufferedReader().use { it.readText() }
+
+        emailJson = File(settings + "email.json").inputStream().bufferedReader().use { it.readText() }
+        email = Email(emailJson)
+
         web = File(settings + "web.json").inputStream().bufferedReader().use { it.readText() }
 
         webCharset = webSetting("charset")

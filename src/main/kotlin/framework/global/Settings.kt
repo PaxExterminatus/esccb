@@ -21,8 +21,8 @@ class Settings {
     //Базы данных
     val sqlInsertBatchSize = 2500
     //Веб
-    val webCharset = webSetting("charset")
-    val webLang = webSetting("lang")
+    lateinit var webCharset: String
+    lateinit var webLang: String
 
     fun load(appRootPath: String)
     {
@@ -34,6 +34,9 @@ class Settings {
         db = File(settings + "db.json").inputStream().bufferedReader().use { it.readText() }
         email = File(settings + "email.json").inputStream().bufferedReader().use { it.readText() }
         web = File(settings + "web.json").inputStream().bufferedReader().use { it.readText() }
+
+        webCharset = webSetting("charset")
+        webLang = webSetting("lang")
 
         val jsonApp = Configuration.defaultConfiguration().jsonProvider().parse(app)
         debugUse = JsonPath.read(jsonApp, "$.debugUse")

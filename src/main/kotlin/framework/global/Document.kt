@@ -4,15 +4,12 @@ import framework.settings
 
 class Document
 {
-    var context = ""
-    var debug = ""
+    private var context = ""
+    private var debug = ""
 
-    private var templateTop = ""
-    private var templateBottom = "" +
-            "</body>" +
-            "</html>"
+    private var templateBottom = "</body></html>"
 
-    fun templateTopBuild(): String {
+    private fun templateTopBuild(): String {
         return "<!DOCTYPE html>" +
                 "<html lang=\"${settings.webLang}\">" +
                 "<head>" +
@@ -21,9 +18,8 @@ class Document
                 "<body>"
     }
 
-
-    fun content(): String{
-        return "$templateTop${contextDebugShow()}$context$templateBottom"
+    fun content(): String {
+        return "${templateTopBuild()}${contextDebugShow()}$context$templateBottom"
     }
 
     private fun contextDebugShow(): String {

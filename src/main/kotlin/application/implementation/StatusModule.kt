@@ -43,6 +43,7 @@ class StatusModule: SysModule()
         document.add("Application:<br> ${settings.app}")
         document.add("Database:<br> ${settings.db}")
         document.add("Email:<br> ${settings.email}")
+        document.add("Web:<br> ${settings.web}")
 
         document.add("<h2>Database</h2>")
 

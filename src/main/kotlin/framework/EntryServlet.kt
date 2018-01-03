@@ -16,11 +16,12 @@ class EntryServlet: HttpServlet() {
         //Инициализация
         call.initCall(req)
         settings.load(servletContext.getRealPath("/"))
+        document.templateTopBuild()
 
         //Передаем управление модулю
         ModuleRouter(req).moduleGet().workRouter(call.work,"")
 
-        //Формирование отмета
+        //Вывод ответа отмета
         resp.writer.write(document.content())
     }
 }

@@ -10,7 +10,7 @@ abstract class SysModule {
 
     fun exception(exceptionCode: String, message: String = "")
     {
-        document.contextClear()
+        document.clear()
         when (exceptionCode)
         {
             "WNS" ->

@@ -7,16 +7,20 @@ class Document
     var context = ""
     var debug = ""
 
-    private var templateTop = "" +
-            "<!DOCTYPE html>" +
-            "<html lang=\"ru-RU\">" +
-            "<head>" +
-            "<meta charset=\"UTF-8\">" +
-            "</head>" +
-            "<body>"
+    private var templateTop = ""
     private var templateBottom = "" +
             "</body>" +
             "</html>"
+
+    fun templateTopBuild(): String {
+        return "<!DOCTYPE html>" +
+                "<html lang=\"${settings.webLang}\">" +
+                "<head>" +
+                "<meta charset=\"${settings.webCharset}\">" +
+                "</head>" +
+                "<body>"
+    }
+
 
     fun content(): String{
         return "$templateTop${contextDebugShow()}$context$templateBottom"

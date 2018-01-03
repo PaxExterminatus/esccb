@@ -22,6 +22,12 @@
       "name": " ЕШКО ",
       "address": "hotline@eshko.by"
     }
+  },
+
+  "test": {
+    "recipient": "paxexterminatus@gmail.com",
+    "title": "This is test!!!",
+    "body": "This is email body!!!"
   }
 
 }

@@ -17,6 +17,10 @@ data class Email(val json: String) {
     val messageFromName: String
     val messageFromAddress: String
 
+    val testRecipient: String
+    val testTitle: String
+    val testBody: String
+
     init {
         val jsonObj = Configuration.defaultConfiguration().jsonProvider().parse(json)
 
@@ -33,6 +37,10 @@ data class Email(val json: String) {
         imapFolber = JsonPath.read(jsonObj, "$.imap.folber")
 
         messageFromName =  JsonPath.read(jsonObj, "$.message.from.name")
-        messageFromAddress =  JsonPath.read(jsonObj, "$.message.from.address")
+        messageFromAddress = JsonPath.read(jsonObj, "$.message.from.address")
+
+        testRecipient = JsonPath.read(jsonObj, "$.test.recipient")
+        testTitle = JsonPath.read(jsonObj, "$.test.title")
+        testBody = JsonPath.read(jsonObj, "$.test.body")
     }
 }

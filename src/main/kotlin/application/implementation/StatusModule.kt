@@ -4,6 +4,7 @@ import application.source.DatabaseCross
 import application.source.DatabaseSas
 import framework.call
 import framework.document
+import framework.gear.EmailGear
 import framework.system.SysModule
 import framework.settings
 import java.io.PrintWriter
@@ -47,6 +48,18 @@ class StatusModule: SysModule()
         document.add("<h2>Setting Classes</h2>")
         document.add("<h3>framework.global.settings.Email</h3>")
         document.add("${settings.email}")
+        document.add("<h3>framework.global.settings.Web</h3>")
+        document.add("${settings.web}")
+
+        document.add("<h2>Email Sender</h2>")
+        try {
+            EmailGear().send(settings.email.testRecipient, settings.email.testTitle, settings.email.testBody)
+            document.add("Success!!!")
+        } catch (ex: Exception) {
+            val sw = StringWriter()
+            ex.printStackTrace(PrintWriter(sw))
+            document.add(sw.toString())
+        }
 
         document.add("<h2>Database</h2>")
         document.add("<h3>CROSS database version</h3>")

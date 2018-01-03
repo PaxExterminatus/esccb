@@ -11,9 +11,9 @@ class Document
 
     private fun templateTopBuild(): String {
         return "<!DOCTYPE html>" +
-                "<html lang=\"${settings.webLang}\">" +
+                "<html lang=\"${settings.web.lang}\">" +
                 "<head>" +
-                "<meta charset=\"${settings.webCharset}\">" +
+                "<meta charset=\"${settings.web.charset}\">" +
                 "</head>" +
                 "<body>"
     }

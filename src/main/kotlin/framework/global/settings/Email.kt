@@ -14,7 +14,8 @@ data class Email(val json: String) {
     val imapHost: String
     val imapPort: Int
     val imapFolber: String
-    val messageFrom: String
+    val messageFromName: String
+    val messageFromAddress: String
 
     init {
         val jsonObj = Configuration.defaultConfiguration().jsonProvider().parse(json)
@@ -31,6 +32,7 @@ data class Email(val json: String) {
         imapPort = JsonPath.read(jsonObj, "$.imap.port")
         imapFolber = JsonPath.read(jsonObj, "$.imap.folber")
 
-        messageFrom =  JsonPath.read(jsonObj, "$.message.from")
+        messageFromName =  JsonPath.read(jsonObj, "$.message.from.name")
+        messageFromAddress =  JsonPath.read(jsonObj, "$.message.from.address")
     }
 }

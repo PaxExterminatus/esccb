@@ -54,6 +54,11 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="Gradle: com.jayway.jsonpath:json-path:2.4.0" level="project" />
+    <orderEntry type="library" name="Gradle: javax.mail:javax.mail-api:1.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.sun.mail:smtp:1.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.sun.mail:imap:1.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: javax.activation:activation:1.1.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.sun.mail:javax.mail:1.5.2" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jre8:1.2.10" level="project" />
     <orderEntry type="library" name="Gradle: javax.servlet:javax.servlet-api:3.0.1" level="project" />
     <orderEntry type="library" name="Gradle: net.minidev:json-smart:2.3" level="project" />

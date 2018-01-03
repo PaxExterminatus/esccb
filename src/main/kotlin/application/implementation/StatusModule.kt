@@ -42,7 +42,7 @@ class StatusModule: SysModule()
         document.add("Application:<br> ${settings.app}")
         document.add("Database:<br> ${settings.db}")
         document.add("Email:<br> ${settings.emailJson}")
-        document.add("Web:<br> ${settings.web}")
+        document.add("Web:<br> ${settings.webJson}")
 
         document.add("<h2>Setting Classes</h2>")
         document.add("<h3>framework.global.settings.Email</h3>")

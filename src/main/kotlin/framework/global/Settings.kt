@@ -3,7 +3,7 @@ package framework.global
 import java.io.File
 import com.jayway.jsonpath.Configuration
 import com.jayway.jsonpath.JsonPath
-import framework.global.settings.Email
+import framework.global.settings.*
 
 class Settings {
     val separator = System.getProperty("file.separator")!!
@@ -15,17 +15,15 @@ class Settings {
     lateinit var app: String
     lateinit var db: String
     lateinit var emailJson: String
-    lateinit var web: String
+    lateinit var webJson: String
 
     //Откладка
     var debugUse: Boolean = false
     //Базы данных
     val sqlInsertBatchSize = 2500
-    //Веб
-    lateinit var webCharset: String
-    lateinit var webLang: String
     //Email
     lateinit var email: Email
+    lateinit var web: Web
 
     fun load(appRootPath: String)
     {
@@ -39,10 +37,8 @@ class Settings {
         emailJson = File(settings + "email.json").inputStream().bufferedReader().use { it.readText() }
         email = Email(emailJson)
 
-        web = File(settings + "web.json").inputStream().bufferedReader().use { it.readText() }
-
-        webCharset = webSetting("charset")
-        webLang = webSetting("lang")
+        webJson = File(settings + "web.json").inputStream().bufferedReader().use { it.readText() }
+        web = Web(webJson)
 
         val jsonApp = Configuration.defaultConfiguration().jsonProvider().parse(app)
         debugUse = JsonPath.read(jsonApp, "$.debugUse")
@@ -52,10 +48,5 @@ class Settings {
     {
         val json = Configuration.defaultConfiguration().jsonProvider().parse(db)
         return JsonPath.read(json, "$.$dbName.$settingName")
-    }
-
-    private fun webSetting(settingName: String): String {
-        val json = Configuration.defaultConfiguration().jsonProvider().parse(web)
-        return JsonPath.read(json, "$.$settingName")
     }
 }

@@ -18,7 +18,10 @@
   },
 
   "message": {
-    "from": " ЕШКО "
+    "from": {
+      "name": " ЕШКО ",
+      "address": "hotline@eshko.by"
+    }
   }
 
 }

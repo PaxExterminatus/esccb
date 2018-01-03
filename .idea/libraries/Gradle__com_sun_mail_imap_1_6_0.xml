@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.sun.mail:imap:1.6.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sun.mail/imap/1.6.0/861880525d98c65d45956ea62ef5200a0e12f6d1/imap-1.6.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sun.mail/imap/1.6.0/e2c52ca75c4c901a698ae54ca7ac0a0acc199262/imap-1.6.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

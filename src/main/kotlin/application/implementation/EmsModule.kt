@@ -29,7 +29,7 @@ class EmsModule : SysModule()
         document.add("<h1>Email Marketing System</h1>")
         try
         {
-            val sasDb = Database(settings.dbConnection("sas"))
+            val sasDb = Database("sas")
             val crossDb = DatabaseCross()
             val rs = sasDb.selectResultSet("EMS_CLIENT_SYNC")
             crossDb.truncateEmsClientTable()

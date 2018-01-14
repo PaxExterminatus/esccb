@@ -25,6 +25,7 @@ class Call
         module = moduleGet()
         work = workGet()
 
+        params.clear()
         val parameterNames = req.parameterNames
         while (parameterNames.hasMoreElements()) {
             val paramName = parameterNames.nextElement()

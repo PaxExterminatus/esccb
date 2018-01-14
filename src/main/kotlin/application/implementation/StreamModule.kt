@@ -14,6 +14,7 @@ class StreamModule : SysModule()
         if (workNames.contains(call.work)){
             if (call.work == "preview")
             {
+                previewWork(call.params["cause"]!!)
                 previewWork(call.params["cause"]!!,call.params["user"]!!)
                 //todo auto params insert (reflection, prototype)
                 //val params = ::previewWork.parameters
@@ -30,10 +31,10 @@ class StreamModule : SysModule()
         }
     }
 
-    private fun previewWork(cause: String, user: String)
-    {
-        document.add("previewWork, cause = $cause; user = $user")
-    }
+    private fun previewWork(cause: String, user: String) = document.add("previewWork2, cause = $cause; user = $user")
+
+    private fun previewWork(cause: String) = document.add("previewWork1, cause = $cause")
+
 
     private fun sendWork(cause: String)
     {

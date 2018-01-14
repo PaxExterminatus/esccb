@@ -12,6 +12,8 @@ class Call
     var module: String = ""
     var work: String = ""
 
+    var params: MutableMap<String, String> = hashMapOf()
+
     fun initCall(req: HttpServletRequest) {
         val separatorPattern = Pattern.compile("/",Pattern.CASE_INSENSITIVE)
         val requestURI: String = if (req.requestURI[0] == '/') req.requestURI.substring(1) else req.requestURI
@@ -23,10 +25,17 @@ class Call
         module = moduleGet()
         work = workGet()
 
+        val parameterNames = req.parameterNames
+        while (parameterNames.hasMoreElements()) {
+            val paramName = parameterNames.nextElement()
+            params.put(paramName, req.getParameter(paramName))
+        }
+
         if (settings.debugUse) {
             document.addDebug("application: $application")
             document.addDebug("module: $module")
             document.addDebug("work: $work")
+            document.addDebug("params Map: $params")
         }
     }
 

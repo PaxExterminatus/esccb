@@ -5,7 +5,7 @@ import framework.settings
 class Document
 {
     private var context = ""
-    private var debug = ""
+    var debug = ""
 
     private var templateBottom = "</body></html>"
 
@@ -23,32 +23,19 @@ class Document
     }
 
     private fun contextDebugShow(): String {
-        if (settings.debugUse)
-            return debug
-        else
-            return ""
+        return if (settings.debugUse) debug else ""
     }
 
-    fun addDebug(str: String)
-    {
+    fun addDebug(str: String) {
         debug += str + "<br>"
     }
 
-    fun add(str: String)
-    {
+    fun add(str: String) {
         context += str + "<br>"
     }
 
     fun clear() {
-        contextClear()
-        debugClear()
-    }
-
-    private fun contextClear(){
         context = ""
-    }
-
-    private fun debugClear(){
         debug = ""
     }
 }

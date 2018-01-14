@@ -14,8 +14,8 @@ class EntryServlet: HttpServlet() {
         document.clear()
         call.clear()
         //Инициализация
-        call.initCall(req)
         settings.load(servletContext.getRealPath("/"))
+        call.initCall(req)
 
         //Передаем управление модулю
         ModuleRouter(req).moduleGet().workRouter(call.work,"")

@@ -1,6 +1,6 @@
 package application.source
 
-import framework.sources.Database
+import framework.data.Database
 
 class DatabaseSas : Database("sas")
 {

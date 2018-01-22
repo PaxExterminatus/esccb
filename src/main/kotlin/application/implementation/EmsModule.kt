@@ -2,9 +2,8 @@ package application.implementation
 
 import application.source.DatabaseCross
 import framework.call
-import framework.sources.Database
+import framework.data.Database
 import framework.document
-import framework.settings
 import framework.system.SysModule
 import java.io.PrintWriter
 import java.io.StringWriter

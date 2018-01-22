@@ -1,7 +1,6 @@
 package application.source
 
-import framework.settings
-import framework.sources.Database
+import framework.data.Database
 
 class DatabaseCross : Database("cross")
 {

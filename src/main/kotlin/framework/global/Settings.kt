@@ -25,7 +25,7 @@ class Settings {
     lateinit var email: Email
     lateinit var web: Web
 
-    fun load(appRootPath: String)
+    fun fill(appRootPath: String)
     {
         application = appRootPath
         settings = appRootPath + "settings" + separator

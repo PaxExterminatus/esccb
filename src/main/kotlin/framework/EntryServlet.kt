@@ -10,12 +10,9 @@ import javax.servlet.http.HttpServletResponse
 class EntryServlet: HttpServlet() {
     override fun service(req: HttpServletRequest, resp: HttpServletResponse)
     {
-        //Сброс
-        document.clear()
-        call.clear()
         //Инициализация
-        settings.load(servletContext.getRealPath("/"))
-        call.initCall(req)
+        settings.fill(servletContext.getRealPath("/"))
+        call.fill(req)
 
         //Передаем управление модулю
         ModuleRouter(req).moduleGet().workRouter(call.work,"")

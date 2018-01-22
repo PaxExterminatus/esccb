@@ -14,7 +14,9 @@ class Call
 
     var params: MutableMap<String, String> = hashMapOf()
 
-    fun initCall(req: HttpServletRequest) {
+    fun fill(req: HttpServletRequest) {
+        clear()
+
         val separatorPattern = Pattern.compile("/",Pattern.CASE_INSENSITIVE)
         val requestURI: String = if (req.requestURI[0] == '/') req.requestURI.substring(1) else req.requestURI
         callWays = separatorPattern.split(requestURI)
@@ -25,11 +27,10 @@ class Call
         module = moduleGet()
         work = workGet()
 
-        params.clear()
         val parameterNames = req.parameterNames
         while (parameterNames.hasMoreElements()) {
             val paramName = parameterNames.nextElement()
-            params.put(paramName, req.getParameter(paramName))
+            params[paramName] = req.getParameter(paramName)
         }
 
         if (settings.debugUse) {
@@ -48,9 +49,10 @@ class Call
         return if (deep >= 2) callWays[2] else "index"
     }
 
-    fun clear() {
+    private fun clear() {
         application = ""
         module = ""
         work = ""
+        params.clear()
     }
 }

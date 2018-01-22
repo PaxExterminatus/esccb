@@ -5,13 +5,13 @@ import application.source.DatabaseSas
 import framework.call
 import framework.document
 import framework.gear.EmailGear
-import framework.system.SysModule
+import framework.module.FModule
 import framework.settings
 import java.io.PrintWriter
 import java.io.StringWriter
 import java.util.*
 
-class StatusModule: SysModule()
+class StatusModule: FModule()
 {
     override val moduleName: String = "status"
     override val workNames: Array<String> = arrayOf("show")
@@ -35,9 +35,9 @@ class StatusModule: SysModule()
 
         document.add("<h2>Application Settings</h2>")
         document.add("Separator: ${settings.separator}")
-        document.add("Application: ${settings.application}")
-        document.add("Settings: ${settings.settings}")
-        document.add("View: ${settings.view}")
+        document.add("Application: ${settings.pathApp}")
+        document.add("Settings: ${settings.pathSettings}")
+        document.add("View: ${settings.pathView}")
 
         document.add("<h2>Configuration Files</h2>")
         document.add("Application:<br> ${settings.app}")
@@ -46,9 +46,9 @@ class StatusModule: SysModule()
         document.add("Web:<br> ${settings.webJson}")
 
         document.add("<h2>Setting Classes</h2>")
-        document.add("<h3>framework.global.settings.Email</h3>")
+        document.add("<h3>framework.global.pathSettings.Email</h3>")
         document.add("${settings.email}")
-        document.add("<h3>framework.global.settings.Web</h3>")
+        document.add("<h3>framework.global.pathSettings.Web</h3>")
         document.add("${settings.web}")
 
         document.add("<h2>Email Sender</h2>")

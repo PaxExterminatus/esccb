@@ -19,7 +19,6 @@ class Document
     }
 
     fun content(): String {
-        clear()
         return "${templateTopBuild()}${contextDebugShow()}$context$templateBottom"
     }
 
@@ -35,7 +34,7 @@ class Document
         context += str + "<br>"
     }
 
-    private fun clear() {
+    fun clear() {
         context = ""
         debug = ""
     }

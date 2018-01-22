@@ -1,8 +1,8 @@
-package framework.system
+package framework.module
 
 import framework.*
 
-abstract class SysModule {
+abstract class FModule {
     abstract val moduleName: String //todo имя модуля из имени класса
     abstract val workNames: Array<String> //todo получать список действий из методов с именем xxxWork
 

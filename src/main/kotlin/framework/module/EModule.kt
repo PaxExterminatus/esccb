@@ -1,6 +1,6 @@
-package framework.system
+package framework.module
 
-class ErrorModule: SysModule()
+class EModule : FModule()
 {
     override val moduleName: String = "error"
     override val workNames: Array<String> = arrayOf("wns","mns","une")

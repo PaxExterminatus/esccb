@@ -2,9 +2,9 @@ package application.implementation
 
 import framework.call
 import framework.document
-import framework.system.SysModule
+import framework.module.FModule
 
-class StreamModule : SysModule()
+class StreamModule : FModule()
 {
     override val moduleName: String = "stream"
     override val workNames: Array<String> = arrayOf("preview", "send")

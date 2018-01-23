@@ -14,11 +14,7 @@ class View(viewName: String) {
 
     init {
         val viewCurrentPath = settings.pathView + viewName
-
-        document.addDebug("viewCurrentPath = " + viewCurrentPath)
-
         viewSource = File(viewCurrentPath).inputStream().bufferedReader().use { it.readText() }
-
         document.add(viewSource)
     }
 }

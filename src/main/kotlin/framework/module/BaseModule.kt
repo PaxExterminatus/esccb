@@ -1,12 +1,17 @@
 package framework.module
 
 import framework.*
+import framework.view.View
 
-abstract class FModule {
+abstract class BaseModule {
     abstract val moduleName: String //todo имя модуля из имени класса
     abstract val workNames: Array<String> //todo получать список действий из методов с именем xxxWork
 
     abstract fun workRouter(work: String, queryString: String)
+
+    protected fun view(viewName: String) {
+        View(viewName)
+    }
 
     fun exception(exceptionCode: String, message: String = "")
     {

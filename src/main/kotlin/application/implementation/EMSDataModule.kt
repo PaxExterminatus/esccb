@@ -4,11 +4,11 @@ import application.source.DatabaseCross
 import framework.call
 import framework.data.Database
 import framework.document
-import framework.module.FModule
+import framework.module.BaseModule
 import java.io.PrintWriter
 import java.io.StringWriter
 
-class EmsModule : FModule()
+class EMSDataModule : BaseModule()
 {
     override val moduleName: String = "sync"
     override val workNames: Array<String> = arrayOf("sync","log")

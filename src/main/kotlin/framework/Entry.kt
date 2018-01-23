@@ -19,8 +19,6 @@ class Entry : HttpServlet() {
         //Передаем управление модулю
         ModuleRouter().moduleGet().workRouter(call.work,"")
 
-        val v = View("hello.html")
-
         //Вывод ответа отмета
         resp.writer.write(document.content())
     }

@@ -2,9 +2,9 @@ package application.implementation
 
 import framework.call
 import framework.document
-import framework.module.FModule
+import framework.module.BaseModule
 
-class StreamModule : FModule()
+class CommunicationModule : BaseModule()
 {
     override val moduleName: String = "stream"
     override val workNames: Array<String> = arrayOf("preview", "send")
@@ -25,7 +25,7 @@ class StreamModule : FModule()
     }
 
     private fun previewWork(cause: String, user: String) {
-        document.add("sendWork, cause = $cause")
+        view("hello.html")
     }
 
     private fun sendWork(cause: String) {

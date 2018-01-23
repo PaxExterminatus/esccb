@@ -1,24 +1,24 @@
 package framework.router
 
-import application.implementation.EmsModule
-import application.implementation.StreamModule
+import application.implementation.EMSDataModule
+import application.implementation.CommunicationModule
 import application.implementation.StatusModule
 import framework.call
 import framework.module.*
 
 class ModuleRouter
 {
-    fun moduleGet(): FModule
+    fun moduleGet(): BaseModule
     {
         if (call.module == "ems")
-            return EmsModule()
+            return EMSDataModule()
 
         if (call.module == "status")
             return StatusModule()
 
         if (call.module == "stream")
-            return StreamModule()
+            return CommunicationModule()
 
-        return EModule()
+        return ExceptionModule()
     }
 }

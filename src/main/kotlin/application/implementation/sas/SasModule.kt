@@ -11,7 +11,7 @@ class SasModule : BaseModule() {
     override fun workRouter(work: String, queryString: String) {
         when (call.work) {
             "index" -> indexWork()
-            "data" -> SasDataModule()
+            "data" -> SasDataModule().dataGet(call.params)
             "api" -> SasApiModule()
             else -> exception("WNS")
         }

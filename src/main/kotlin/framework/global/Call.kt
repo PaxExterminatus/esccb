@@ -32,14 +32,12 @@ class Call
         }
 
         if (settings.debugUse) {
-            document.addDebug("module: $module")
-            document.addDebug("work: $work")
-            document.addDebug("params Map: $params")
+            document.addDebug("module: $module / work: $work ? params: $params")
         }
     }
 
-    private fun moduleGet(): String = if (deep >= 1) callWays[1] else "index"
-    private fun workGet(): String = if (deep >= 2) callWays[2] else "index"
+    private fun moduleGet(): String = if (deep >= 2) callWays[1] else "index"
+    private fun workGet(): String = if (deep >= 3) callWays[2] else "index"
 
     private fun clear() {
         module = ""

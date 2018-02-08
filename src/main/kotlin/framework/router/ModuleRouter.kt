@@ -3,6 +3,7 @@ package framework.router
 import application.implementation.EMSDataModule
 import application.implementation.CommunicationModule
 import application.implementation.StatusModule
+import application.implementation.sas.SasModule
 import framework.call
 import framework.module.*
 
@@ -18,6 +19,9 @@ class ModuleRouter
 
         if (call.module == "stream")
             return CommunicationModule()
+
+        if (call.module == "sas")
+            return SasModule()
 
         return ExceptionModule()
     }

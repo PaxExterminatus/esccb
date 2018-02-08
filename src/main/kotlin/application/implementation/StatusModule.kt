@@ -27,7 +27,7 @@ class StatusModule: BaseModule()
 
     private fun showWork()
     {
-        document.add("<h1>Status Page</h1>")
+        document.add("<h1>Status Page V1</h1>")
 
         document.add("<h2>Call</h2>")
         document.add("Ways: ${Arrays.toString(call.callWays)}")

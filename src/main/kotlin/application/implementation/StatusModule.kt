@@ -5,13 +5,13 @@ import application.source.DatabaseSas
 import framework.call
 import framework.document
 import framework.gear.EmailGear
-import framework.module.BaseModule
+import framework.module.FModule
 import framework.settings
 import java.io.PrintWriter
 import java.io.StringWriter
 import java.util.*
 
-class StatusModule: BaseModule()
+class StatusModule: FModule()
 {
     override val moduleName: String = "status"
     override val workNames: Array<String> = arrayOf("show")
@@ -27,7 +27,7 @@ class StatusModule: BaseModule()
 
     private fun showWork()
     {
-        document.add("<h1>Status Page V1</h1>")
+        document.add("<h1>Status Page V2</h1>")
 
         document.add("<h2>Call</h2>")
         document.add("Ways: ${Arrays.toString(call.callWays)}")

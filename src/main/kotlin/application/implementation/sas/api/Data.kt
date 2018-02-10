@@ -1,9 +1,9 @@
-package application.implementation.sas
+package application.implementation.sas.api
 
 import framework.document
-import framework.module.DataModule
+import framework.module.FData
 
-class SasDataModule: DataModule() {
+class Data : FData() {
 
     override fun dataGet(params: MutableMap<String, String>) {
         val entity = params["entity"]

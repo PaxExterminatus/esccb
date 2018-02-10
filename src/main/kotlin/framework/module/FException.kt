@@ -1,6 +1,6 @@
 package framework.module
 
-class ExceptionModule : BaseModule()
+class FException : FModule()
 {
     override val moduleName: String = "error"
     override val workNames: Array<String> = arrayOf("wns","mns","une")

@@ -3,7 +3,7 @@ package framework.module
 import framework.*
 import framework.view.View
 
-abstract class BaseModule {
+abstract class FModule {
     abstract val moduleName: String //todo имя модуля из имени класса
     abstract val workNames: Array<String> //todo получать список действий из методов с именем xxxWork
 

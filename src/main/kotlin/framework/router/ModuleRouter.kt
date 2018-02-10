@@ -3,13 +3,13 @@ package framework.router
 import application.implementation.EMSDataModule
 import application.implementation.CommunicationModule
 import application.implementation.StatusModule
-import application.implementation.sas.SasModule
+import application.implementation.sas.module.Sas
 import framework.call
 import framework.module.*
 
 class ModuleRouter
 {
-    fun moduleGet(): BaseModule
+    fun moduleGet(): FModule
     {
         if (call.module == "ems")
             return EMSDataModule()
@@ -21,8 +21,8 @@ class ModuleRouter
             return CommunicationModule()
 
         if (call.module == "sas")
-            return SasModule()
+            return Sas()
 
-        return ExceptionModule()
+        return FException()
     }
 }

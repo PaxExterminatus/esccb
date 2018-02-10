@@ -1,0 +1,41 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Gradle : by.paxdev.app : esccb.war (exploded)">
+    <output-path>$PROJECT_DIR$/build/libs/exploded/esccb.war</output-path>
+    <properties id="gradle-properties">
+      <options external-project-path="$PROJECT_DIR$">
+        <manifest>TWFuaWZlc3QtVmVyc2lvbjogMS4wDQoNCg==</manifest>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/build/libs/exploded/esccb.war/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="esccb_main/web/Web Gradle : esccb.war" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="esccb_main" />
+          <element id="dir-copy" path="$PROJECT_DIR$/out/production/resources" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/libs/ojdbc14.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/libs/mariadb-java-client-2.1.2.jar" />
+          <element id="library" level="project" name="Gradle: com.jayway.jsonpath:json-path:2.4.0" />
+          <element id="library" level="project" name="Gradle: javax.mail:javax.mail-api:1.6.0" />
+          <element id="library" level="project" name="Gradle: com.sun.mail:smtp:1.6.0" />
+          <element id="library" level="project" name="Gradle: com.sun.mail:imap:1.6.0" />
+          <element id="library" level="project" name="Gradle: javax.activation:activation:1.1.1" />
+          <element id="library" level="project" name="Gradle: com.sun.mail:javax.mail:1.5.2" />
+          <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.2.21" />
+          <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-reflect:1.2.21" />
+          <element id="library" level="project" name="Gradle: net.minidev:json-smart:2.3" />
+          <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.7.25" />
+          <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.2.21" />
+          <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.21" />
+          <element id="library" level="project" name="Gradle: net.minidev:accessors-smart:1.2" />
+          <element id="library" level="project" name="Gradle: org.jetbrains:annotations:13.0" />
+          <element id="library" level="project" name="Gradle: org.ow2.asm:asm:5.0.4" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

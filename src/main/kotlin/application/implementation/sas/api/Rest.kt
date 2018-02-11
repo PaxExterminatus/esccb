@@ -1,7 +1,7 @@
 package application.implementation.sas.api
 
-import framework.module.FRestModule
+import framework.api.FRest
 
-class Rest : FRestModule() {
+class Rest : FRest() {
 
 }

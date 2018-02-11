@@ -38,4 +38,10 @@ class Document
         context = ""
         debug = ""
     }
+    fun api(result: String, format: String = "java") {
+        clear()
+        when (format) {
+            "java" -> this.add(result)
+        }
+    }
 }

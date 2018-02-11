@@ -1,16 +1,28 @@
 package application.implementation.sas.api
 
 import framework.document
-import framework.module.FData
+import framework.api.FData
 
 class Data : FData() {
 
     override fun dataGet(params: MutableMap<String, String>) {
-        val entity = params["entity"]
-        val by = params["by"]
-        val value = params["where"]
-        val view = params["view"] ?: "json" //todo default json
+        val method = params["method"]
+        val param = params["param"]
+        val source = params["source"]
+        val data = params["data"]
 
-        document.add("entity $entity / by $by / where $value / view $view")
+        val view = params["view"] ?: "json"
+
+
+        val result = listOf(
+                hashMapOf("name" to "vasya"),
+                hashMapOf("cource" to "eng"),
+                hashMapOf("lesson" to "12333")
+        )
+
+        document.api(result.toString())
+
+        document.add("method $method / by $param / deep $source / view $view / data $data")
+        //http://localhost:8181/esccb/sas/data?method=findById&param=10&source=client.cources.counteiners&data=cources[name,unit,status]counteiners[lesson,pay,cost]
     }
 }

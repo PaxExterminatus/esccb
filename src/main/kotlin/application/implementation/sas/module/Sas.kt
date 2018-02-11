@@ -11,15 +11,24 @@ class Sas : FModule() {
     override val workNames: Array<String> = arrayOf("index","data","api")
 
     override fun workRouter(work: String, queryString: String) {
-        when (call.work) {
-            "index" -> indexWork()
-            "data" -> Data().dataGet(call.params)
-            "api" -> Rest()
+        //if (work !in workNames) throw Exception("Work Not Supported")
+
+        when (work) {
+            Works.Index.work -> indexWork()
+            Works.Data.work -> Data().dataGet(call.params)
+            Works.Rest.work -> Rest()
             else -> exception("WNS")
         }
     }
 
     private fun indexWork() {
         document.add("sas/index")
+    }
+
+    enum class Works(val work: String) {
+        Index("index"),
+        Data("data"),
+        Rest("rest"),
+        GraphQL("graph");
     }
 }

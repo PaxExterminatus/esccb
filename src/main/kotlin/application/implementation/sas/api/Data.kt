@@ -19,8 +19,7 @@ class Data : FData() {
                 hashMapOf("cource" to "eng"),
                 hashMapOf("lesson" to "12333")
         )
-
-        document.api(result.toString())
+        document.api(result.joinToString (separator = ",", prefix = "{", postfix = "}" ) )
 
         document.add("method $method / by $param / deep $source / view $view / data $data")
         //http://localhost:8181/esccb/sas/data?method=findById&param=10&source=client.cources.counteiners&data=cources[name,unit,status]counteiners[lesson,pay,cost]

@@ -3,7 +3,7 @@ package framework.global.settings
 import com.jayway.jsonpath.Configuration
 import com.jayway.jsonpath.JsonPath
 
-data class Email(val json: String) {
+data class Email(private val json: String) {
 
     val login: String
     val password: String

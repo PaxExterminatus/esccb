@@ -1,9 +1,8 @@
-package application.implementation.sas.module
+package application.module.sas
 
-import application.implementation.sas.api.Data
-import application.implementation.sas.api.Rest
+import application.module.sas.api.Data
+import application.module.sas.api.Rest
 import framework.call
-import framework.document
 import framework.module.FModule
 
 class Sas : FModule() {
@@ -22,7 +21,7 @@ class Sas : FModule() {
     }
 
     private fun indexWork() {
-        document.add("sas/index")
+
     }
 
     enum class Works(val work: String) {
@@ -31,4 +30,6 @@ class Sas : FModule() {
         Rest("rest"),
         GraphQL("graph");
     }
+
+
 }

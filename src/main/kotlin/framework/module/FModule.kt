@@ -37,8 +37,4 @@ abstract class FModule {
             }
         }
     }
-
-    enum class WorkSuported(val workName: String) {
-        Index("index")
-    }
 }

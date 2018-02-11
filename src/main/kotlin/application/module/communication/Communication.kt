@@ -1,10 +1,10 @@
-package application.implementation
+package application.module.communication
 
 import framework.call
 import framework.document
 import framework.module.FModule
 
-class CommunicationModule : FModule()
+class Communication : FModule()
 {
     override val moduleName: String = "stream"
     override val workNames: Array<String> = arrayOf("preview", "send")

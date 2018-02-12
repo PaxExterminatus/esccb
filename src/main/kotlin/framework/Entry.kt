@@ -1,7 +1,8 @@
 package framework
 
+import framework.exception.FWException
+import framework.exception.FWExceptionModule
 import framework.router.ModuleRouter
-import framework.view.View
 import javax.servlet.http.HttpServlet
 import javax.servlet.annotation.WebServlet
 import javax.servlet.http.HttpServletRequest
@@ -17,7 +18,11 @@ class Entry : HttpServlet() {
         call.fill(req)
 
         //Передаем управление модулю
-        ModuleRouter().moduleGet().workRouter(call.work,"")
+        try {
+            ModuleRouter().moduleGet().workRouter(call.work,"")
+        } catch (e: FWException) {
+            FWExceptionModule(e)
+        }
 
         //Вывод ответа отмета
         resp.writer.write(document.content())

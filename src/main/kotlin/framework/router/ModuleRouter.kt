@@ -5,6 +5,7 @@ import application.module.communication.Communication
 import application.module.status.StatusModule
 import application.module.sas.Sas
 import framework.call
+import framework.exception.FWEModuleNotSupported
 import framework.module.*
 
 class ModuleRouter {
@@ -14,7 +15,7 @@ class ModuleRouter {
             "status" -> StatusModule()
             "stream" -> Communication()
             "sas" -> Sas()
-            else -> FWExceptionModule()
+            else -> throw FWEModuleNotSupported()
         }
     }
 }

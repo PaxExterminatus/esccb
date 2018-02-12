@@ -4,8 +4,8 @@ import application.source.DatabaseCross
 import application.source.DatabaseSas
 import framework.call
 import framework.document
+import framework.exception.FWEWorkNotSupported
 import framework.gear.EmailGear
-import framework.module.FWException
 import framework.module.IModule
 import framework.settings
 import java.io.PrintWriter
@@ -16,12 +16,10 @@ class StatusModule: IModule
     override val moduleName: String = "status"
     override val workNames: Array<String> = arrayOf("show")
 
-    override fun workRouter(work: String, queryString: String)
-    {
-        if (workNames.contains(call.work)){
-            if (call.work == "show") showWork()
-        } else {
-            exception(FWException.WorkNotSupported())
+    override fun workRouter(work: String, queryString: String) {
+        when (work) {
+            "show" -> showWork()
+            else -> throw FWEWorkNotSupported()
         }
     }
 

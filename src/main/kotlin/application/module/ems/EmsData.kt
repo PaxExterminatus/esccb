@@ -1,10 +1,9 @@
 package application.module.ems
 
 import application.source.DatabaseCross
-import framework.call
 import framework.data.Database
 import framework.document
-import framework.module.FWException
+import framework.exception.FWEWorkNotSupported
 import framework.module.IModule
 import java.io.PrintWriter
 import java.io.StringWriter
@@ -14,16 +13,14 @@ class EmsData: IModule
     override val moduleName: String = "sync"
     override val workNames: Array<String> = arrayOf("sync","log")
 
-    override fun workRouter(work: String, queryString: String)
-    {
-        if (workNames.contains(call.work)){
-            if (call.work == "sync") syncWork()
-            if (call.work == "log") logWork()
-        } else {
-            exception(FWException.ModuleNotSupported())
+    override fun workRouter(work: String, queryString: String) {
+        when (work) {
+            "sync" -> syncWork()
+            "log" -> logWork()
+            else -> throw FWEWorkNotSupported()
         }
     }
-
+    
     private fun syncWork()
     {
         document.add("<h1>Email Marketing System</h1>")

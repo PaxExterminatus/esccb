@@ -2,7 +2,7 @@ package application.module.communication
 
 import framework.call
 import framework.document
-import framework.module.FWException
+import framework.exception.FWEWorkNotSupported
 import framework.module.IModule
 
 class Communication: IModule
@@ -11,17 +11,10 @@ class Communication: IModule
     override val workNames: Array<String> = arrayOf("preview", "send")
 
     override fun workRouter(work: String, queryString: String) {
-        if (workNames.contains(call.work)){
-            if (call.work == "preview")
-            {
-                previewWork("","")
-            }
-            if (call.work == "send")
-            {
-                sendWork(call.params["cause"]!!)
-            }
-        } else {
-            exception(FWException.WorkNotSupported())
+        when (work) {
+            "preview" -> previewWork("","")
+            "send" -> sendWork(call.params["cause"]!!)
+            else -> throw FWEWorkNotSupported()
         }
     }
 

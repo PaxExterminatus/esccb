@@ -3,7 +3,7 @@ package application.module.sas
 import application.module.sas.api.Data
 import application.module.sas.api.Rest
 import framework.call
-import framework.module.FWException
+import framework.exception.FWEWorkNotSupported
 import framework.module.IModule
 
 class Sas : IModule {
@@ -11,14 +11,11 @@ class Sas : IModule {
     override val workNames: Array<String> = arrayOf("index","data","api")
 
     override fun workRouter(work: String, queryString: String) {
-        //if (work !in workNames) throw Exception("Work Not Supported")
-
-
         when (work) {
             Works.Index.work -> indexWork()
             Works.Data.work -> Data().dataGet(call.params)
             Works.Rest.work -> Rest()
-            else -> exception(FWException.ModuleNotSupported())
+            else -> throw FWEWorkNotSupported()
         }
     }
 

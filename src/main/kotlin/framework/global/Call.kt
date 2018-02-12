@@ -1,15 +1,14 @@
 package framework.global
 
 import framework.*
-import java.util.regex.Pattern
 import javax.servlet.http.HttpServletRequest
 
 class Call
 {
     lateinit var callWays: List<String>
     var deep: Int = 1
-    var module: String = ""
-    var work: String = ""
+    var module: String = "index"
+    var work: String = "index"
 
     var params: MutableMap<String, String> = hashMapOf()
 

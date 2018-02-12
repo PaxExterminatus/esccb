@@ -7,22 +7,14 @@ import application.module.sas.Sas
 import framework.call
 import framework.module.*
 
-class ModuleRouter
-{
-    fun moduleGet(): IModule
-    {
-        if (call.module == "ems")
-            return EmsData()
-
-        if (call.module == "status")
-            return StatusModule()
-
-        if (call.module == "stream")
-            return Communication()
-
-        if (call.module == "sas")
-            return Sas()
-
-        return FWException()
+class ModuleRouter {
+    fun moduleGet(): IModule {
+        return when (call.module) {
+            "ems" -> EmsData()
+            "status" -> StatusModule()
+            "stream" -> Communication()
+            "sas" -> Sas()
+            else -> FWExceptionModule()
+        }
     }
 }

@@ -5,6 +5,7 @@ import application.source.DatabaseSas
 import framework.call
 import framework.document
 import framework.gear.EmailGear
+import framework.module.FWException
 import framework.module.IModule
 import framework.settings
 import java.io.PrintWriter
@@ -20,7 +21,7 @@ class StatusModule: IModule
         if (workNames.contains(call.work)){
             if (call.work == "show") showWork()
         } else {
-            exception("WNS")
+            exception(FWException.WorkNotSupported())
         }
     }
 

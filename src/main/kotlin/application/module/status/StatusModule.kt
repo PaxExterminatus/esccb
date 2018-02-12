@@ -5,13 +5,12 @@ import application.source.DatabaseSas
 import framework.call
 import framework.document
 import framework.gear.EmailGear
-import framework.module.FModule
+import framework.module.IModule
 import framework.settings
 import java.io.PrintWriter
 import java.io.StringWriter
-import java.util.*
 
-class StatusModule: FModule()
+class StatusModule: IModule
 {
     override val moduleName: String = "status"
     override val workNames: Array<String> = arrayOf("show")

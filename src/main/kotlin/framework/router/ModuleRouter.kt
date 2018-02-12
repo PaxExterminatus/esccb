@@ -9,7 +9,7 @@ import framework.module.*
 
 class ModuleRouter
 {
-    fun moduleGet(): FModule
+    fun moduleGet(): IModule
     {
         if (call.module == "ems")
             return EmsData()
@@ -23,6 +23,6 @@ class ModuleRouter
         if (call.module == "sas")
             return Sas()
 
-        return FException()
+        return FWException()
     }
 }

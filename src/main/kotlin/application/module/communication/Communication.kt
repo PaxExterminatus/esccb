@@ -2,9 +2,10 @@ package application.module.communication
 
 import framework.call
 import framework.document
-import framework.module.FModule
+import framework.module.FWException
+import framework.module.IModule
 
-class Communication : FModule()
+class Communication: IModule
 {
     override val moduleName: String = "stream"
     override val workNames: Array<String> = arrayOf("preview", "send")
@@ -20,7 +21,7 @@ class Communication : FModule()
                 sendWork(call.params["cause"]!!)
             }
         } else {
-            exception("WNS")
+            exception(FWException.WorkNotSupported())
         }
     }
 

@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest
 
 class Call
 {
-    lateinit var callWays: Array<String>
+    lateinit var callWays: List<String>
     var deep: Int = 1
     var module: String = ""
     var work: String = ""
@@ -16,12 +16,10 @@ class Call
     fun fill(req: HttpServletRequest) {
         clear()
 
-        //request preparation
-        val separatorPattern = Pattern.compile("/",Pattern.CASE_INSENSITIVE)
-        val requestURI: String = if (req.requestURI[0] == '/') req.requestURI.substring(1) else req.requestURI
-
         //extract data
-        callWays = separatorPattern.split(requestURI)
+        val requestURI: String = if (req.requestURI[0] == '/') req.requestURI.substring(1) else req.requestURI
+        callWays = requestURI.split("/")
+
         deep = callWays.size
         module = moduleGet()
         work = workGet()

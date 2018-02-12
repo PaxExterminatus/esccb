@@ -30,7 +30,7 @@ class StatusModule: FModule()
         document.add("<h1>Status Page V2</h1>")
 
         document.add("<h2>Call</h2>")
-        document.add("Ways: ${Arrays.toString(call.callWays)}")
+        document.add("Ways: ${call.callWays}")
         document.add("Deep: ${call.deep}")
 
         document.add("<h2>Application Settings</h2>")
